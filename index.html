@@ -2,286 +2,554 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanatat Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanatat | Portfolio</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f3f0ff;
-            color: #333;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        header {
-            background: linear-gradient(120deg, #a8c5ff, #d9b8ff);
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+:root {
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --text: #24292f;
+  --sub: #656d76;
+  --border: #d0d7de;
+  --accent: #8250df;
+  --soft: #f1eaff;
+}
 
-        nav {
-            background: white;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            box-shadow: 0 2px 8px #ddd;
-        }
+.dark {
+  --bg: #0d1117;
+  --card: #161b22;
+  --text: #e6edf3;
+  --sub: #9198a1;
+  --border: #30363d;
+  --accent: #bc8cff;
+  --soft: #292039;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #66509c;
-            margin: 12px;
-            font-weight: bold;
-        }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        nav a:hover {
-            color: #e27ab5;
-        }
+body {
+  font-family: 'Kanit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: .3s;
+}
 
-        .home {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(120deg, #dce8ff, #f0ddff);
-            animation: fadeIn 1.2s;
-        }
+header {
+  height: 65px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  background: var(--card);
+}
 
-        .home img {
-            width: 170px;
-            height: 170px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 4px 15px #999;
-        }
+.logo {
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--accent);
+}
 
-        .home h1 {
-            color: #6852a1;
-            font-size: 32px;
-        }
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
 
-        .home p {
-            font-size: 17px;
-        }
+nav a {
+  color: var(--sub);
+  text-decoration: none;
+  font-size: 14px;
+}
 
-        .button {
-            display: inline-block;
-            background: #8065c9;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            margin-top: 10px;
-        }
+nav a:hover {
+  color: var(--accent);
+}
 
-        .button:hover {
-            background: #e18ab9;
-            transform: scale(1.05);
-        }
+.theme-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 8px 13px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-        .box {
-            background: white;
-            margin: 25px auto;
-            padding: 25px;
-            width: 80%;
-            max-width: 850px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px #ddd;
-            transition: 0.3s;
-        }
+.container {
+  max-width: 1150px;
+  margin: 45px auto;
+  padding: 0 25px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 35px;
+}
 
-        .box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 7px 18px #c8b8ed;
-        }
+/* PROFILE */
 
-        h2 {
-            color: #8065c9;
-            border-bottom: 2px solid #e7dcff;
-            padding-bottom: 10px;
-        }
+.profile {
+  position: sticky;
+  top: 25px;
+  height: fit-content;
+}
 
-        .skills {
-            text-align: center;
-        }
+.avatar {
+  width: 190px;
+  height: 190px;
+  border-radius: 25px;
+  background: linear-gradient(135deg,#8250df,#35b6cf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 65px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  box-shadow: 0 12px 30px #8250df30;
+}
 
-        .skill {
-            display: inline-block;
-            background: #e9e1ff;
-            color: #7055b0;
-            padding: 15px 25px;
-            margin: 10px;
-            border-radius: 12px;
-            transition: 0.3s;
-        }
+.profile h1 {
+  font-size: 25px;
+}
 
-        .skill:hover {
-            background: #b9caff;
-            transform: scale(1.1);
-        }
+.username {
+  color: var(--sub);
+  font-size: 15px;
+  margin-bottom: 15px;
+}
 
-        .project {
-            background: #f3efff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
+.bio {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
 
-        .contact {
-            text-align: center;
-        }
+.info {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 2.4;
+  word-break: break-word;
+}
 
-        .contact a {
-            color: #8065c9;
-            text-decoration: none;
-        }
+.contact {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  background: var(--accent);
+  color: white;
+  padding: 11px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: .3s;
+}
 
-        footer {
-            background: #cbbaf0;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+.contact:hover {
+  transform: translateY(-3px);
+  opacity: .85;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* CONTENT */
 
-        @media (max-width: 600px) {
-            nav a {
-                display: inline-block;
-                margin: 6px;
-            }
+.welcome {
+  background: linear-gradient(120deg,#8250df,#4776e6,#35b6cf);
+  color: white;
+  border-radius: 18px;
+  padding: 30px;
+  margin-bottom: 32px;
+}
 
-            .box {
-                width: 85%;
-            }
+.welcome small {
+  opacity: .8;
+  letter-spacing: 2px;
+}
 
-            .home h1 {
-                font-size: 26px;
-            }
-        }
-    </style>
+.welcome h2 {
+  font-size: 29px;
+  margin: 8px 0;
+}
+
+.welcome p {
+  font-size: 14px;
+  opacity: .9;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-title h2 {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.section-title span {
+  font-size: 12px;
+  color: var(--sub);
+}
+
+/* PROJECTS */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+}
+
+.project {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 20px;
+  transition: .3s;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 25px #8250df15;
+}
+
+.project-icon {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.project h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.project p {
+  font-size: 12px;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--soft);
+  color: var(--accent);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-top: 14px;
+}
+
+/* SKILLS */
+
+.skills {
+  margin-top: 35px;
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+
+.skill {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 22px 10px;
+  text-align: center;
+  transition: .3s;
+}
+
+.skill:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.skill .icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.skill h3 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.skill p {
+  font-size: 11px;
+  color: var(--sub);
+}
+
+/* ABOUT */
+
+.about {
+  margin-top: 35px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 23px;
+}
+
+.about h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.about p {
+  color: var(--sub);
+  font-size: 13px;
+  line-height: 2;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: var(--sub);
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  margin-top: 50px;
+}
+
+/* MOBILE */
+
+@media(max-width:750px) {
+  header {
+    padding: 0 18px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    margin-top: 25px;
+  }
+
+  .profile {
+    position: static;
+    text-align: center;
+  }
+
+  .avatar {
+    margin: 0 auto 15px;
+    width: 145px;
+    height: 145px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-list {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .welcome h2 {
+    font-size: 23px;
+  }
+}
+
+@media(max-width:400px) {
+  nav a {
+    display: none;
+  }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h2>MY PORTFOLIO</h2>
-        <p>Welcome to my personal website</p>
-    </header>
+<header>
+  <div class="logo">TP. Portfolio</div>
 
-    <nav>
-        <a href="#home">หน้าแรก</a>
-        <a href="#about">เกี่ยวกับฉัน</a>
-        <a href="#education">การศึกษา</a>
-        <a href="#skills">ทักษะ</a>
-        <a href="#projects">ผลงาน</a>
-        <a href="#contact">ติดต่อ</a>
-    </nav>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <button class="theme-btn" onclick="toggleTheme()">☀️ / 🌙</button>
+  </nav>
+</header>
 
-    <div class="home" id="home">
+<div class="container">
 
-        <img src="profile.jpg" alt="รูปโปรไฟล์ธนทัต">
+  <!-- PROFILE -->
+  <aside class="profile">
 
-        <h1>ธนทัต เพ็งนิ่ม</h1>
+    <div class="avatar">TP</div>
 
-        <p>นักศึกษาคณะเทคโนโลยีสารสนเทศ</p>
+    <h1>ธนทัต เพ็งนิ่ม</h1>
+    <div class="username">Thanatat Pengnim</div>
 
-        <p>Bangkok University</p>
-
-        <a href="#about" class="button">รู้จักฉันเพิ่มเติม</a>
-
+    <div class="bio">
+      Information Technology Student<br>
+      Bangkok University
     </div>
 
-    <div class="box" id="about">
-
-        <h2>👋 เกี่ยวกับฉัน</h2>
-
-        <p>สวัสดีครับ ผมชื่อ ธนทัต เพ็งนิ่ม</p>
-
-        <p>
-            เป็นนักศึกษามหาวิทยาลัยกรุงเทพ
-            คณะเทคโนโลยีสารสนเทศ
-        </p>
-
-        <p>
-            มีความสนใจด้านเทคโนโลยี
-            การออกแบบเว็บไซต์ และการพัฒนาระบบ
-        </p>
-
+    <div class="info">
+      🎓 คณะเทคโนโลยีสารสนเทศ<br>
+      🏫 มหาวิทยาลัยกรุงเทพ<br>
+      📍 Thailand<br>
+      💻 Interested in Technology
     </div>
 
-    <div class="box" id="education">
+    <a class="contact"
+       href="mailto:thanatatpengnim@gmail.com">
+       ✉ Contact Me
+    </a>
 
-        <h2>🎓 ประวัติการศึกษา</h2>
-
-        <p><b>มหาวิทยาลัย:</b> มหาวิทยาลัยกรุงเทพ</p>
-
-        <p><b>คณะ:</b> เทคโนโลยีสารสนเทศ</p>
-
-        <p><b>สาขา:</b> เทคโนโลยีสารสนเทศ</p>
-
+    <div class="info" style="margin-top:12px">
+      Email:<br>
+      thanatatpengnim@gmail.com
     </div>
 
-    <div class="box" id="skills">
+  </aside>
 
-        <h2>💻 ทักษะของฉัน</h2>
+  <!-- MAIN CONTENT -->
+  <main>
 
-        <div class="skills">
+    <section class="welcome">
+      <small>WELCOME TO MY PORTFOLIO</small>
+      <h2>Hello, I'm Thanatat 👋</h2>
+      <p>
+        Welcome to my personal portfolio.
+        Explore my skills, interests and future projects.
+      </p>
+    </section>
 
-            <div class="skill">Figma</div>
+    <!-- PROJECTS -->
+    <section id="projects">
 
-            <div class="skill">Power BI</div>
+      <div class="section-title">
+        <h2>▣ Projects</h2>
+        <span>My Works</span>
+      </div>
 
-            <div class="skill">HTML</div>
-
-        </div>
-
-    </div>
-
-    <div class="box" id="projects">
-
-        <h2>📁 ผลงานของฉัน</h2>
+      <div class="projects">
 
         <div class="project">
-
-            <h3>My Projects</h3>
-
-            <p>กำลังรวบรวมผลงาน</p>
-
+          <div class="project-icon">🌐</div>
+          <h3>Web Development</h3>
+          <p>
+            Website development and web design
+            using HTML and CSS.
+          </p>
+          <span class="tag">HTML</span>
         </div>
 
-    </div>
+        <div class="project">
+          <div class="project-icon">🎨</div>
+          <h3>UI / UX Design</h3>
+          <p>
+            Designing user interfaces and
+            improving user experiences.
+          </p>
+          <span class="tag">Figma</span>
+        </div>
 
-    <div class="box contact" id="contact">
+        <div class="project">
+          <div class="project-icon">📊</div>
+          <h3>Data Visualization</h3>
+          <p>
+            Creating visual reports and
+            presenting information with data.
+          </p>
+          <span class="tag">Power BI</span>
+        </div>
 
-        <h2>📩 ติดต่อฉัน</h2>
+        <div class="project">
+          <div class="project-icon">💡</div>
+          <h3>Coming Soon</h3>
+          <p>
+            New projects and creative ideas
+            will be added here.
+          </p>
+          <span class="tag">Future Project</span>
+        </div>
 
-        <p>Email:</p>
+      </div>
+    </section>
 
-        <a href="mailto:thanatatpengnim@gmail.com">
-            thanatatpengnim@gmail.com
-        </a>
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
 
-    </div>
+      <div class="section-title">
+        <h2>⚡ Skills</h2>
+        <span>My Technologies</span>
+      </div>
 
-    <footer>
+      <div class="skill-list">
 
-        <p>© 2026 Thanatat Portfolio</p>
+        <div class="skill">
+          <div class="icon">🎨</div>
+          <h3>Figma</h3>
+          <p>UI / UX Design</p>
+        </div>
 
-        <p>Created by Thanatat Pengnim</p>
+        <div class="skill">
+          <div class="icon">📊</div>
+          <h3>Power BI</h3>
+          <p>Data Analytics</p>
+        </div>
 
-    </footer>
+        <div class="skill">
+          <div class="icon">🌐</div>
+          <h3>HTML</h3>
+          <p>Web Development</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <h2>👨‍💻 About Me</h2>
+      <p>
+        I am an Information Technology student
+        at Bangkok University. I am interested
+        in technology, web development,
+        UI/UX design and data visualization.
+        I enjoy learning new skills and
+        developing creative ideas into projects.
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  © 2026 Thanatat Pengnim | Personal Portfolio
+  <br>
+  Designed with ❤️
+</footer>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+
+  const isDark =
+    document.body.classList.contains('dark');
+
+  localStorage.setItem('theme',
+    isDark ? 'dark' : 'light');
+}
+
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+}
+</script>
 
 </body>
 </html>
