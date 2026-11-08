@@ -1,51 +1,174 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-    <title>My Portfolio</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanatat Portfolio</title>
 
     <style>
         body {
-            background-color: #eeeeff;
-            font-family: Arial;
             margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f0ff;
             color: #333;
         }
 
         header {
-            background-color: #b9c9f5;
+            background: linear-gradient(120deg, #a8c5ff, #d9b8ff);
+            padding: 20px;
             text-align: center;
-            padding: 30px;
         }
 
-        h1 {
-            color: #55458c;
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #66509c;
+            margin: 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #e27ab5;
+        }
+
+        .home {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(120deg, #dce8ff, #f0ddff);
+            animation: fadeIn 1.2s;
+        }
+
+        .home img {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px #999;
+        }
+
+        .home h1 {
+            color: #6852a1;
+            font-size: 32px;
+        }
+
+        .home p {
+            font-size: 17px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #8065c9;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background: #e18ab9;
+            transform: scale(1.05);
         }
 
         .box {
-            background-color: white;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 10px;
+            background: white;
+            margin: 25px auto;
+            padding: 25px;
+            width: 80%;
+            max-width: 850px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px #ddd;
+            transition: 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 18px #c8b8ed;
         }
 
         h2 {
-            color: #6858a5;
+            color: #8065c9;
+            border-bottom: 2px solid #e7dcff;
+            padding-bottom: 10px;
+        }
+
+        .skills {
+            text-align: center;
         }
 
         .skill {
-            background-color: #ded8ff;
-            padding: 8px;
-            margin: 5px;
             display: inline-block;
-            border-radius: 8px;
+            background: #e9e1ff;
+            color: #7055b0;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: #b9caff;
+            transform: scale(1.1);
+        }
+
+        .project {
+            background: #f3efff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact a {
+            color: #8065c9;
+            text-decoration: none;
         }
 
         footer {
-            background-color: #b9c9f5;
+            background: #cbbaf0;
             text-align: center;
-            padding: 15px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 6px;
+            }
+
+            .box {
+                width: 85%;
+            }
+
+            .home h1 {
+                font-size: 26px;
+            }
         }
     </style>
 </head>
@@ -53,46 +176,111 @@
 <body>
 
     <header>
-        <h1>My Portfolio</h1>
-        <p>สวัสดีครับ ผมชื่อ [ชื่อของคุณ]</p>
-        <p>นักศึกษาสาขาเทคโนโลยีสารสนเทศ</p>
+        <h2>MY PORTFOLIO</h2>
+        <p>Welcome to my personal website</p>
     </header>
 
-    <div class="box">
-        <h2>เกี่ยวกับฉัน</h2>
-        <p>ผมเป็นนักศึกษาที่สนใจด้านเทคโนโลยี
-        การออกแบบเว็บไซต์ และการพัฒนาระบบ</p>
+    <nav>
+        <a href="#home">หน้าแรก</a>
+        <a href="#about">เกี่ยวกับฉัน</a>
+        <a href="#education">การศึกษา</a>
+        <a href="#skills">ทักษะ</a>
+        <a href="#projects">ผลงาน</a>
+        <a href="#contact">ติดต่อ</a>
+    </nav>
+
+    <div class="home" id="home">
+
+        <img src="profile.jpg" alt="รูปโปรไฟล์ธนทัต">
+
+        <h1>ธนทัต เพ็งนิ่ม</h1>
+
+        <p>นักศึกษาคณะเทคโนโลยีสารสนเทศ</p>
+
+        <p>Bangkok University</p>
+
+        <a href="#about" class="button">รู้จักฉันเพิ่มเติม</a>
+
     </div>
 
-    <div class="box">
-        <h2>ประวัติการศึกษา</h2>
-        <p>มหาวิทยาลัย: [ชื่อมหาวิทยาลัย]</p>
-        <p>คณะ: [ชื่อคณะ]</p>
-        <p>สาขา: เทคโนโลยีสารสนเทศ</p>
+    <div class="box" id="about">
+
+        <h2>👋 เกี่ยวกับฉัน</h2>
+
+        <p>สวัสดีครับ ผมชื่อ ธนทัต เพ็งนิ่ม</p>
+
+        <p>
+            เป็นนักศึกษามหาวิทยาลัยกรุงเทพ
+            คณะเทคโนโลยีสารสนเทศ
+        </p>
+
+        <p>
+            มีความสนใจด้านเทคโนโลยี
+            การออกแบบเว็บไซต์ และการพัฒนาระบบ
+        </p>
+
     </div>
 
-    <div class="box">
-        <h2>ทักษะของฉัน</h2>
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">Figma</div>
-        <div class="skill">Microsoft Office</div>
+    <div class="box" id="education">
+
+        <h2>🎓 ประวัติการศึกษา</h2>
+
+        <p><b>มหาวิทยาลัย:</b> มหาวิทยาลัยกรุงเทพ</p>
+
+        <p><b>คณะ:</b> เทคโนโลยีสารสนเทศ</p>
+
+        <p><b>สาขา:</b> เทคโนโลยีสารสนเทศ</p>
+
     </div>
 
-    <div class="box">
-        <h2>ผลงานของฉัน</h2>
-        <p>1. ออกแบบเว็บไซต์ด้วย Figma</p>
-        <p>2. สร้างเว็บไซต์ด้วย HTML</p>
+    <div class="box" id="skills">
+
+        <h2>💻 ทักษะของฉัน</h2>
+
+        <div class="skills">
+
+            <div class="skill">Figma</div>
+
+            <div class="skill">Power BI</div>
+
+            <div class="skill">HTML</div>
+
+        </div>
+
     </div>
 
-    <div class="box">
-        <h2>ช่องทางติดต่อ</h2>
-        <p>Email: your@email.com</p>
-        <p>Facebook: Your Facebook</p>
+    <div class="box" id="projects">
+
+        <h2>📁 ผลงานของฉัน</h2>
+
+        <div class="project">
+
+            <h3>My Projects</h3>
+
+            <p>กำลังรวบรวมผลงาน</p>
+
+        </div>
+
+    </div>
+
+    <div class="box contact" id="contact">
+
+        <h2>📩 ติดต่อฉัน</h2>
+
+        <p>Email:</p>
+
+        <a href="mailto:thanatatpengnim@gmail.com">
+            thanatatpengnim@gmail.com
+        </a>
+
     </div>
 
     <footer>
-        <p>My Portfolio 2026</p>
+
+        <p>© 2026 Thanatat Portfolio</p>
+
+        <p>Created by Thanatat Pengnim</p>
+
     </footer>
 
 </body>
